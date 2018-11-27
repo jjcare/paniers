@@ -85,6 +85,7 @@ def makeMap(addr, longlat):
     #    for i in jdata['route']['legs'][0]['maneuvers']:
     #        print('- {0} ({1:0.1f}km)'.format(i['narrative'], i['distance']))
 
+    # maps dir is in web level above
     fname = '../maps/{}.png'.format(strip_accents(''.join(addr.split())))
     
     with open(fname, 'wb') as f:
