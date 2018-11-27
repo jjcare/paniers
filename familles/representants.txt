@@ -1,0 +1,113 @@
+101	Bécotte	Lika	10504	
+101	Kaseya	Faty-Lina	10673	
+101	Le Blanc	Émilie	10463	
+102	Danaie	Rozhin	10299	
+102	Dupré	Florence	10214	
+102	Flores Julien	Bianca	10345	
+103	Laflamme	Arthur	10216	
+103	Storto	Alessandro James	10729	
+103	Trudel	Marine	10319	
+103	Vidricaire	Sacha	10716	
+104	Ackad	Chloé	10539	
+104	Gauthier	Véronik	10474	
+105	Barry	Hawa	10351	
+105	Duchesne	Arielle	10303	
+105	Grenier	Maxime	10260	
+105	Kabbani	Alexander	10512	
+106	Brar	Navdeep Kaur	10338	
+106	Chen	Fan	10493	
+106	Hamzaoui	Sami	10556	
+107	Abbasi	Romina	10564	
+107	Béland	Olivia	10246	
+107	Ghabro	Ludovic	10217	
+108	Ait Touares	Marissa	10526	
+108	Bird	Nathalie	10234	
+108	Dupuis	Anne-Véronique	10383	
+109	Delaquis	Arthur Malik	10314	
+109	Soussi	Rayan	10402	
+109	Yazedjian	Alexandre	10241	
+110	Dufrêne-Boelen	Claire	10538	
+110	Dupont	Lilirose	10457	
+110	Marsolais	Noah	10294	
+111	Lefebvre	Hubert	10242	
+111	Monthe	Oliver Matteo Tiako	10548	
+112	Desrochers	Malcolm	10491	
+112	Lamer	Arnaud	10585	
+201	Dabiré	Lauriane	10090	
+201	Delagrave-Ajduk	Paul	9987	
+201	Doan	Phi Yen Nhi	9774	
+202	Barin	Noah	9890	
+202	Erhard	Maxime	9747	
+203	Guay	Eliot	9682	
+203	Walsh	Lyam	9821	
+204	Rabasa-Lhoret	Arthur	10114	
+205	Chartrand	Gabriel	9927	
+206	Hamani	Aymen	10089	
+207	Marche	Élise	9701	
+208	Fernandez-Azevedo	Victor	9735	
+208	Piquion-Pierre	Océane	10100	
+209	Ouardirhi	Karim	9691	
+210	Bouchard	Sophie	9787	
+210	Karahissarian	Vincent Daron	9835	
+211	Baki	Bassam	9949	
+211	El-Khoury	Thérèse	9648	
+212	Rahali	Lina	10121	
+213	De Vries	Reuben	9911	
+213	Sabourin	Philippe	9705	
+301	Laflamme	Josué	9399	
+302	Chaussée	Marianne	9548	
+303	Godin	Camille	9398	
+304	Atallah	Jacob	9245	
+305	Anson	Émilie	9224	
+305	Rizk	Maria-Vanessa	9167	
+306	Berard	Jean-Sebastien	9544	
+306	Félix	Darnley Alexander	9178	
+308	Bazinet	Antoine	9378	
+309	Hached	Sophie	9481	
+310	Daniel	Eden	9243	
+401	Cazimir	Darice Mathilda	8793	
+401	Gélinas	Margot	8865	
+401	Seaborn	Margo	8660	
+402	Forest	Edmond	8961	
+402	Géhami-Corriveau	Noah	8946	
+403	Mayer	Antoine	8772	
+403	Wolff	Matisse	8812	
+404	Shoueib	Jad	8841	
+404	Syed	Shanil Ferdouse	8826	
+405	Châtillon-Angle	Anne-Sophie	8874	
+405	Couillard	Flavie	9611	
+406	Hajjar	Sarah	8836	
+406	Legault	Li Yan	8750	
+406	Shen-Moreau	Jasmine	8859	
+407	Morin	Frédérique	8704	
+408	Chen	Xinrong	9598	
+408	Fayard	Charlotte	9572	
+408	Gaudreau	Antoine	8692	
+408	Landry	Béatrice	8842	
+408	Mur	Stanislas	8786	
+409	Chalifour	Léa	10173	
+409	Chouha	Vanessa	8668	
+409	Grippo	Julius	8974	
+409	Roy	Clarisse	8805	
+409	Taza	Émilie	10177	
+501	Legault	Elizabeth	8303	
+501	Schoofs	Adélaïde P.	8561	
+501	Tremblay	Adrien	8523	
+502	Lopez Asselin	Sofia Itzel	10191	
+503	Maislin	Alexanne	9606	
+504	Bérubé	Sandryne	8401	
+505	Lacasse	Lauréanne	8298	
+506	Audelin-Rinfret	Justine	9543	
+506	Dupont	Julien	8524	
+506	Paré	Gabrielle	8383	
+507	Zerroug	Jasmine	8248	
+508	Angers	Marie-Claire	9051	
+508	Chrétien	Emma	8254	
+508	Dionne	Justine	8410	
+508	Korman	Catherine	8301	
+508	Lafond	Maude	9615	
+509	Cloutier-Sanchez	Alexandre	10202	
+509	Donciu	Loredana	8308	
+509	Nguyen	Hoang Bao Duy	8510	
+510	Henry	Jaylan	8556	
+510	Tinawi	Mathieu	8373	

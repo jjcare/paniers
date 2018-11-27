@@ -1,0 +1,41 @@
+@page {size: 11in 8.5in; margin: 1.27cm 0.48cm 1.27cm 0.5cm }
+
+body {
+	margin: 0;
+	padding:0;
+	font-family: 'Times New Roman', serif;
+	font-size: 9pt;
+	line-height: 90%;
+	widows: 6;
+	orphans: 5;
+}
+
+div {
+	margin: 0;
+	padding:0;
+}
+
+table {
+	margin: 0;
+	padding: 0;
+}
+
+table.famlabel {
+	page-break-inside: avoid;
+	padding-right: 0.8cm;
+	padding-left: 0.3cm;
+	height: 2.54cm;
+	width: 6.98cm;
+}
+
+td.right {
+	text-align:right;
+	margin:0;
+	padding:0;
+	page-break-inside: avoid;
+}
+
+table.labels {
+	margin-right: 0.3cm;
+}
+

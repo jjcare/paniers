@@ -1,0 +1,254 @@
+/* styles for Paniers de Noel (svdp)  */
+/* //# -*- coding: utf-8 -*- */
+body {
+	margin:0;
+	padding:0;
+	font-family: Verdana Sans;
+	background: brown;
+}
+
+ul {
+	text-decoration: none;
+	display: inline;
+}
+
+div#container {
+	width: 90%;
+	margin: 0 auto;
+	background: #fceffd;
+	min-height: 100%;
+	height: 100%;
+}
+
+div#navbar {
+	margin: 2em auto;
+}
+
+#navbar ul {
+	padding-left: 0;
+	margin-left: 0;
+	background-color: #036;
+	color: White;
+	float: left; 
+	width: 100%;
+	font-family: arial, helvetica, sans-serif;
+	font-size: .8em;
+}
+
+#navbar ul li { display: inline; }
+
+#navbar ul li a
+{
+padding: 0.2em 1em;
+background-color: #036; 
+color: White;
+text-decoration: none;
+float: left;
+ border-right: 1px solid #fff; 
+}
+
+#navbar ul li a:hover
+{
+background-color: #369;
+color: #fff;
+}
+
+
+
+div#list {
+	margin: 0 auto;
+	width:95%;
+	clear:both;
+}
+
+h1 {
+	page-break-before:always;
+	margin-top: 10px;
+	text-align: center;
+	color: red;
+	font-size: 3em;
+}
+
+h2 {
+	text-align: center;
+	color: teal;
+	font-size: 1.5em;
+}
+
+p {
+	float:left;
+	margin-left:.3em;
+}
+
+fieldset {
+	display:block;
+	clear:both;
+	background: #efefef;
+	color: #666;
+	width: 85%;
+	margin: 5px auto;
+}
+
+legend {
+	color: #fff;
+	font-weight: bold;
+	font-variant: small-caps;
+	background-color: #3088b7;
+	padding: 2px 6px;
+	margin-bottom: 8px;
+	padding-left: .2em;
+}
+
+input {
+	background: #dfe;
+	font-weight: bold;
+}
+
+input:hover {
+	background: #dde;
+}
+
+form img {
+	float:left;
+}
+
+
+#sub_family,
+#sub_person {
+	display:block;
+	clear:both;
+	float:right;
+	margin-right: 6em;
+	background: #ccc;
+}
+
+.nip,
+.famno,
+.foyer,
+.montant {
+	width: 3em;
+	background: .f8c9a3;
+}
+
+.number {
+	width: 4em;
+}
+
+.street {
+	width: 10em;
+}
+
+.appt {
+	width: 3em;
+}
+
+.code {
+	width: 5em;
+}
+
+.telephone,
+.tel_alt {
+	width: 10em;
+}
+
+.note {
+	width: 40em;
+}
+
+/* Person styles */
+
+.relation {
+	width: 8em;
+}
+
+.nom,
+.prenom {
+	width: 15em;
+}
+
+.sexe {
+	width: 2em;
+}
+
+.age {
+	width: 2em;
+}
+
+td.child {
+	width: 10em;
+}
+
+.alternate {
+	background: yellow;
+}
+
+.Demandeur {
+	font-weight: bold;
+}
+
+table.family {
+	border: thin solid green;
+	border-collapse: collapse;
+	font-size: .8em;
+	margin: 0 auto;
+}
+
+thead tr {
+	background: #ddd;
+	font-weight: bold;
+}
+
+table.family td {
+	border: thin solid green;
+	padding: 1em .5em;
+}
+
+table.children td,
+table.beneficiary td {
+	border: none;
+	padding: 0 .2em;
+	background:none;
+}
+
+ul.navside {
+	padding-left: 0;
+	margin-left:0;
+	float:left;
+	list-style-type: none;
+}
+
+ul.navside li {
+	border: 0;
+	margin: 0;
+	padding:0;
+	display:block;
+	float:left
+	clear:both;
+	list-style-type:none;
+}
+
+input.btn {
+	color:#050;
+	font: bold 84% 'trebuchet ms',helvetica,sans-serif;
+	background-color:#fed;
+	border:1px solid;
+	border-color: #696 #363 #363 #696;
+	width: 70px;
+	margin-bottom: 5px;
+}
+
+input.btn:hover {
+	color:#f3f;
+	background-color:#023;
+}
+
+.error {
+	color: red;
+}
+
+div#montants  {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: #bec0bf;
+}

@@ -1,0 +1,193 @@
+@page {size: 8.5in 11in ; margin: 1.2cm }
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    width:900;
+}
+
+.section {
+    display:flex;
+        width:100%;
+        justify-content:space-between;
+}
+
+
+
+div.foyerno {
+    font-size: 85pt;
+    text-align: center;
+    width:90%;
+    padding: .2em .3em;
+    margin: 30pt auto 50px auto;
+    border: solid 3pt #000;
+    border-width: 3pt 10pt;
+    border-radius: 20px;
+}
+
+div.groceries {
+    width: 67%;
+    vertical-align:middle;
+    text-align: left;
+    padding-right: 1%;
+    font-size: 24pt;
+}
+
+div.argent {
+    width: 30%;
+    padding-left: 1%;
+    text-align:right;
+    font-size: 70pt;
+}
+
+div.famno {
+    text-align:center;
+    font-size:16pt;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+div.familypics {
+    display:flex;
+        align-items:flex-end;
+        justify-content:space-around;
+    width:100%;
+    padding-top: 50px;
+    text-align:center;
+}
+
+div.person, div.vbar {
+    margin-right:20px;
+    display: block;
+}
+
+div.person {
+    width: 90px;
+    max-width: 120px;
+}
+
+div.vbar {
+    padding-left: 20px;
+}
+
+
+div.person div p {
+    text-align:center;
+}
+
+small { 
+    font-size: 40pt;
+}
+
+h1,h2,h3 {
+    text-align:center;
+    page-break-after: avoid;
+}
+
+h1 {
+    clear:both;
+    page-break-before: always;
+}
+
+h2 {
+    font-size:12pt;
+    margin-bottom:3pt;
+}
+
+h3 {
+    font-size:10pt;
+    font-style:italic;
+    margin-top:3pt;
+}
+
+p.right {
+    font-weight:bold;
+    text-align:right;
+}
+
+div.container {
+    text-align:center;
+    display:block;
+    margin: 0 auto;
+}
+
+div.c_famdiv {
+	margin: 12pt 2.5cm 2.5cm 20pt;
+}
+
+div.c_famille {
+	font-size: 2em;
+	font-weight:bold;
+	float:left;
+}
+
+td:nth-child(3) {
+	text-align: right;
+	padding-right: 0.5em;
+}
+
+div.c_nip {
+	float:right;
+}
+
+div.c_address {
+	clear:left;
+	float:left;
+	text-align: left;
+}
+
+div.c_note {
+	clear:left;
+	float:left;
+	text-align:left;
+	padding-top: 12pt;
+}
+
+div.c_telephone {
+	float:right;
+	text-align: right;
+}
+
+p.c_signature {
+	clear:both;
+	margin-top: 40pt;
+	padding-top: 20pt;
+	text-align: right;
+}
+div.other {
+    margin: 0.5cm;
+}
+
+div.other > p {
+    text-align:left;
+}
+
+table {
+	border-collapse:collapse;
+	margin: 0 auto;
+	width: 95%;
+	border: none;
+}
+
+
+.beneficiary td, 
+.children td {
+	border: 1pt solid black;
+	padding-left: 0.5em;
+}
+
+th {
+	font-weight: bold;
+	text-align: left;
+}
+
+div.c_famnobig {
+	page-break-before:always;
+	font-size: 350pt;
+	text-align: center;
+}

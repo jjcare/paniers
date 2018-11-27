@@ -1,0 +1,148 @@
+@page {size: 11in 8.5in; margin: 1.5cm }
+
+body {
+	margin: 1.5em 1em;
+}
+
+h1 {
+	page-break-before:always;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+	font-weight: normal;
+	font-size: 1em;
+	margin: 0;
+	padding:0;
+}
+
+p {
+	font-size: 1em;
+	text-align: left;
+}
+
+table {
+	border-collapse:collapse;
+	margin: 0 auto;
+	width: 95%;
+	border: 1pt;
+}
+
+td {
+	border: 1pt solid black;
+}
+
+th {
+	font-weight: bold;
+	text-align: left;
+}
+
+p.famille {
+	text-align: right;
+	font-weight: bold;
+}
+
+table.beneficiary,
+table.children {
+	border: none;
+	margin-left: 1em;
+}
+
+table.beneficiary td,
+table.children td {
+	border: none;
+	padding-right: 1em;
+}
+
+div.c_famdiv {
+	margin: 12pt 2.5cm 2.5cm 20pt;
+}
+
+div.c_famille {
+	font-size: 2em;
+	font-weight:bold;
+	float:left;
+}
+
+div.container {
+    text-align:center;
+    display:block;
+    margin: 0 auto;
+}
+
+div.family {
+    height: 250px;
+    display:inline-block;
+    margin: 0 auto;
+}
+
+div.family > h2 {
+    font-size:12pt;
+    margin-bottom:3pt;
+}
+
+div.family > h3 {
+    font-size:10pt;
+    font-style:italic;
+    margin-top:3pt;
+}
+
+div.other {
+    margin: 0.5cm;
+    clear:both;
+}
+
+div.other > p {
+    text-align:left;
+}
+
+p.right {
+    font-weight:bold;
+    text-align:right;
+}
+
+div.c_famnobig {
+	page-break-before:always;
+	font-size: 350pt;
+	text-align: center;
+}
+
+div.c_nip {
+	float:right;
+}
+
+div.c_address {
+	clear:left;
+	float:left;
+	text-align: left;
+}
+
+div.c_note {
+	clear:left;
+	float:left;
+	text-align:left;
+	padding-top: 12pt;
+}
+
+div.c_telephone {
+	float:right;
+	text-align: right;
+}
+
+p.c_signature {
+	clear:both;
+	margin-top: 40pt;
+	padding-top: 20pt;
+	text-align: right;
+}
+
+div.famdiv {
+	font-size: 14pt;
+}
