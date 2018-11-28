@@ -68,7 +68,6 @@ if ( isset($_REQUEST['labels']) ) {
 						} else {
 						echo "<hr><center><img src=\"http://open.mapquestapi.com/staticmap/v4/getmap?key=gc6PFJn0kE9Etcg78XviilafHjbyTc4e&zoom=15&size=500,500&imagetype=png&type=map&mcenter=" . $f->getLocation() . "&center=" .$f->getLocation(). "\" height=\"500\" /></center>";
 						}
-                                                echo "<br>$map</br>";
 						echo "</div>";
 						//echo "<hr><center><img src=\"http://maps.google.com/maps/api/staticmap?zoom=15&size=640x640&scale=2&center=" . $f->getLocation() . "&sensor=false&markers=label:A%7C45.4937045,-73.6203322&markers=label:B%7C".$f->getLocation()."\" height=\"640\" /></center><br /></div>";
 						//$x = 1000000; while ($x) $x--;  // pour ne pas dépasser la limite de vitesse Google
