@@ -50,7 +50,7 @@ if ( isset($_REQUEST['labels']) ) {
 						echo "<table class=\"members\"><thead><tr><th>Parent(s)</th><th>Enfant(s)</th></tr></thead><tbody>";
 						echo "<tr><td>".$f->getApplicant()."</td><td>".$f->getChildren()."</td></tr></tbody></table><br />";
 						// prepare a map image filename from the address. Convert accents to ascii
-                                                $address = iconv('UTF-8','ASCII//TRANSLIT',$f->getAddress());
+                                                $address = convertAccents($f->getAddress());
 						$parts = explode(" ", $address);
 						if ($parts[count($parts)-1][0] == "#") {
 							unset($parts[count($parts)-1]);
