@@ -48,4 +48,11 @@ function convertAccents ($string) {
     return str_replace($from, $to, $string);
 }
 
+function convertAccents ($string) {
+    // utility function to normalize strings, ignoring iconv nonsense
+    $from = array("À","É","È","Ô","Ç","à","é","è","ô","ç");
+    $to   = array("A","E","E","O","C","a","e","e","o","c");
+    return str_replace($from, $to, $string);
+}
+
 ?>

@@ -4,8 +4,8 @@
 $linux = strstr ($_SERVER['HTTP_USER_AGENT'],'Linux' );
 
 
-//$link = new mysqli('localhost', 'shalom_jjc', '1cor13', 'shalom_cnd');
-$link = new mysqli('localhost', 'root', '', 'shalom_cnd');
+$link = new mysqli('localhost', 'shalom_jjc', '1cor13', 'shalom_cnd');
+//$link = new mysqli('localhost', 'root', '', 'shalom_cnd');
 if (!$link)
 {
 	$error = 'Unable to connect to the database server.';
@@ -13,6 +13,7 @@ if (!$link)
 	exit();
 }
 
+mysqli_set_charset($link,"utf8");
 //$link->set_charset("UTF-8");
 
 // check for data tables
