@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `dependents`;
 CREATE TABLE IF NOT EXISTS `dependents` (
-  `pid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `relation` varchar(255) DEFAULT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS `dependents` (
 
 DROP TABLE IF EXISTS `families`;
 CREATE TABLE IF NOT EXISTS `families` (
-  `fnum` int(11) NOT NULL,
+  `fnum` int(11) UNIQUE KEY NOT NULL AUTO_INCREMENT,
   `famno` int(11) NOT NULL,
-  `nip` int(11) NOT NULL,
+  `nip` int(11) PRIMARY KEY NOT NULL,
   `number` varchar(6) CHARACTER SET utf8 DEFAULT NULL,
   `street` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
   `appt` varchar(5) CHARACTER SET utf8 DEFAULT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `families` (
   `foyer` varchar(15) DEFAULT NULL,
   `montant` int(11) DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 -- --------------------------------------------------------
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `families` (
 
 DROP TABLE IF EXISTS `person_category`;
 CREATE TABLE IF NOT EXISTS `person_category` (
-  `cid` int(4) NOT NULL,
+  `cid` int(4) PRIMARY KEY NOT NULL,
   `category` enum('Demandeur','Conjoint','Enfant','Autre') COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -98,37 +98,17 @@ INSERT INTO `person_category` (`cid`, `category`) VALUES
 
 DROP TABLE IF EXISTS `groceries`;
 CREATE TABLE IF NOT EXISTS `groceries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `foyer` int(3) NOT NULL,
   `item1` varchar(255) NOT NULL,
   `item2` varchar(255) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Indexes for table `groceries`
---
-ALTER TABLE `groceries`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `dependents`
 --
 ALTER TABLE `dependents`
-  ADD PRIMARY KEY (`pid`),
   ADD KEY `nip` (`nip`);
-
---
--- Indexes for table `families`
---
-ALTER TABLE `families`
-  ADD PRIMARY KEY (`nip`),
-  ADD UNIQUE KEY `fnum` (`fnum`,`nip`,`number`);
-
---
--- Indexes for table `person_category`
---
-ALTER TABLE `person_category`
-  ADD UNIQUE KEY `cid` (`cid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

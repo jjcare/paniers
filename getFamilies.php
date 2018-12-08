@@ -8,7 +8,7 @@ $family_set = $link->query ( "SELECT * FROM families ORDER BY " . $trie);
 $families = array();
 if (  $family_set->num_rows> 0 ) {
 	while ($a_row =  $family_set->fetch_assoc() ) {
-		if (!$linux) { $a_row = array_map( "utf8_encode", $a_row);}
+//		if (!$linux) { $a_row = array_map( "utf8_encode", $a_row);}
 		$families[] = new Family ($a_row);
 	}
 }
@@ -22,7 +22,7 @@ for ( $index=0; $index < count($families); $index++ ) {
 	$member_set = $link->query ($sql);
 	if ( $member_set->num_rows  > 0 ) {
 		while ($a_row = $member_set->fetch_assoc()  ) {
-                    if (!$linux) { $a_row = array_map( "utf8_encode", $a_row); }
+  //                  if (!$linux) { $a_row = array_map( "utf8_encode", $a_row); }
                     //print_r ($a_row); echo "<br />";
 		    $families[$index]->addPerson($a_row);
 		}
