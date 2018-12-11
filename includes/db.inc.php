@@ -131,9 +131,9 @@ if (!$ret) {
 
 	if (  $ret->num_rows> 0 ) {  // get groceries for each foyer
             while ($a_row =  $ret->fetch_assoc() ) {
-                if (!$linux){
-                    $a_row = array_map( "utf8_encode", $a_row);
-                }
+//                if (!$linux){
+ //                   $a_row = array_map( "utf8_encode", $a_row);
+//                }
                 $groceries[(string) $a_row['foyer']] = $a_row;
             }
 	}

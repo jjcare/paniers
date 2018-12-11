@@ -31,9 +31,9 @@ div.foyerno {
 }
 
 div.groceries {
-    width: 67%;
+    width: 100%;
     vertical-align:middle;
-    text-align: left;
+    text-align: center;
     padding-right: 1%;
     font-size: 24pt;
 }
@@ -167,6 +167,11 @@ div.other > p {
     text-align:left;
 }
 
+div.check_foyer {
+    font-size: 2em;
+    text-align: center;
+}
+
 table {
 	border-collapse:collapse;
 	margin: 0 auto;
@@ -190,4 +195,8 @@ div.c_famnobig {
 	page-break-before:always;
 	font-size: 350pt;
 	text-align: center;
+}
+
+.jump {
+    page-break-before:always;
 }

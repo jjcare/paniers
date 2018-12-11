@@ -18,27 +18,31 @@ from urllib import request
 
 locationiq_token = '7e46d492aae59f'
 
+mapquestkey = 'gc6PFJn0kE9Etcg78XviilafHjbyTc4e'
 cndlocation = "45.493415,-73.620506" # 3791 Queen Mary
 
 # using Mapquest (openmap) as map source (15000 requests per month free)
 
-openmapUrl = "http://open.mapquestapi.com/staticmap/v4/getmap"
+openmapUrl = "http://open.mapquestapi.com/staticmap/v5/map"
 
-map_values = { 'key' : 'gc6PFJn0kE9Etcg78XviilafHjbyTc4e',
-               'zoom' : '19',
+map_values = { 'key' : mapquestkey,
+               #'zoom' : '15',
+               'start': cndlocation + '|marker-start',
+               'end': '',
                'size' : '650,700',
-               'imagetype' : 'png',
-               'type' : 'map',
+               'format' : 'png',
+               'type' : 'light',
                'scalebar' : 'false',
-               'bestfit' : '',
-              # 'margin' : '30',
-               'pois' : '',
-               'session' : '' }
+               #'routeColor' : '99ff6688',
+               'routeColor' : 'FFFF0088',
+               'routeWidth' : '6',
+               'session' : ''
+               }
 
 
 openmapDirectionReq = "http://www.mapquestapi.com/directions/v2/route"
 
-dir_values = { 'key': 'gc6PFJn0kE9Etcg78XviilafHjbyTc4e',
+dir_values = { 'key': mapquestkey,
                'from': cndlocation,
                'to': '',
                'outFormat': 'json',
@@ -72,9 +76,12 @@ def makeMap(addr, longlat):
         return
 
     # set params for map request (sessionId needed to get directions path)
-    map_values['bestfit'] = '{0},{1}'.format(cndlocation, longlat)
-    map_values['pois'] = 'green_1,{0}|red_1,{1}'.format(cndlocation, longlat)
-    map_values['session'] = jdata['route']['sessionId']
+    bb = jdata['route'].get('boundingBox')
+    if bb:
+       map_values['boundingBox'] = ','.join(['{},{}'.format(bb[x].get('lat'),bb[x].get('lng')) for x in bb])
+   
+    map_values['end'] = longlat + "|marker-end"
+    #map_values['session'] = jdata['route']['sessionId']
 
     mdata = urllib.parse.urlencode(map_values)
 
@@ -153,7 +160,7 @@ except Exception as e:
     print(sys.exc_info())
 
 else:
-    print('\n*** Fin de programme. {:d} cartes produites.\n'.format(len([f for f in famrecs if f.strip() != ''])))
+    print('\n*** Fin de programme. {:d} cartes produites.\n'.format(len([f for f in famrecs if f.strip()])))
 
 print ('Time:', time.strftime('%X - %x', time.localtime()))
 

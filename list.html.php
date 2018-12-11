@@ -22,6 +22,7 @@
 				<li><a href="lists.php?labels" alt="Produire labels.txt">Imprimer étiquettes</a></li>
 				<li><a href="lists.php?certificates">Imprimer certificats</a></li>
 				<li><a href="lists.php?affiches">Imprimer affiches</a></li>
+				<li><a href="lists.php?checklists">Imprimer checklists</a></li>
 				<li><a href="map.php?map">Carte</a></li>
 			</ul>
 		</div>

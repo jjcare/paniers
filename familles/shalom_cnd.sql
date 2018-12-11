@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `groceries` (
   `foyer` int(3) NOT NULL,
   `item1` varchar(255) NOT NULL,
   `item2` varchar(255) NOT NULL 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for table `dependents`
