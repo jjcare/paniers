@@ -1,0 +1,93 @@
+101	34	Café moulu	sac de 300g	1
+101	34	Biscuits sucrés	boite de 300g	1
+102	34	Barres tendres	boite de 175g	2
+102	34	Olives	boite de 375ml	1
+103	34	Céréales	boite	2
+104	34	Chocolat chaud	sac de 500g	1
+104	34	Cassonade	sac de 1kg	1
+105	33	Confitures	pot de 500ml	1
+105	33	Couscous	sac de 1kg	1
+106	33	Dattes	boite de 500g	1
+106	33	Riz	sac de 900g	1
+107	34	Farine	sac de 2,5kg	1
+107	34	Ketchup	bouteille de 750ml	1
+108	34	Fruits en conserve	boite de 796ml	1
+108	34	Huile végétale	bouteille de 946ml	1
+109	36	Pâtes alimentaires	sac de 900g	2
+109	36	Pois chiches/lentilles	boite de 540ml	1
+110	36	Raisins secs	sac de 375g	2
+201	34	Thé	boite	1
+201	34	Thon ou saumon ou sardines	boite de 170g	2
+202	34	Brosses à dents	emballages individuels	4
+203	33	Pains de savon	emballage de 4	2
+203	33	Dentifrice	tube de 120ml	1
+204	35	Dentifrice	tube de 120ml	1
+204	35	Shampoing	bouteille de 355ml	1
+205	33	Savon pour nettoyer la maison (Hertel)	bouteille de 700ml	2
+206	33	Fruits en conserve	boite de 796ml	2
+207	34	Huile végétale	bouteille de 946ml	1
+207	34	Confitures	pot de 500ml	1
+208	33	Shampoing	bouteille de 355ml	1
+208	33	Pâtes alimentaires	sac de 900g	2
+209	33	Café moulu	sac de 300g	1
+209	33	Biscuits sucrés	boite de 300g	1
+210	35	Dentifrice	tube de 120ml	1
+210	35	Shampoing	bouteille de 355ml	1
+211	34	Huile végétale	bouteille de 946ml	1
+211	34	Thon ou saumon ou sardines	boite de 170g	2
+212	32	Brosses à dents	emballages individuels	4
+301	31	Barres tendres	boite de 175g	2
+301	31	Olives	boite de 375ml	1
+302	34	Céréales	boite	2
+303	34	Chocolat chaud	sac de 500g	1
+303	34	Cassonade	sac de 1kg	1
+304	33	Confitures	pot de 500ml	1
+304	33	Couscous	sac de 1kg	1
+305	33	Dattes	boite de 500g	1
+305	33	Riz	sac de 900g	1
+306	31	Farine	sac de 2,5kg	1
+306	31	Ketchup	bouteille de 750ml	1
+307	32	Fruits en conserve	boite de 796ml	1
+307	32	Huile végétale	bouteille de 946ml	1
+308	31	Pâtes alimentaires	sac de 900g	2
+308	31	Pois chiches/lentilles	boite de 540ml	1
+309	32	Raisins secs	sac de 375g	2
+310	33	Café moulu	sac de 300g	1
+311	31	Sucre	sac  de 2kg	2
+311	31	Thé	boite	1
+312	31	Raisins secs	sac de 375g	2
+313	31	Sucre	sac  de 2kg	2
+313	31	Thé	boite	1
+401	29	Sucre	sac  de 2kg	2
+401	29	Thé	boite	1
+402	30	Thé	boite	1
+402	30	Thon ou saumon ou sardines	boite de 170g	1
+403	30	Brosses à dents	emballages individuels	4
+404	30	Pains de savon	emballage de 4	2
+404	30	Dentifrice	tube de 120ml	1
+405	35	Dentifrice	tube de 120ml	1
+405	35	Shampoing	bouteille de 355ml	1
+406	36	Savon pour nettoyer la maison (Hertel)	bouteille de 700ml	2
+407	34	Fruits en conserve	boite de 796ml	2
+408	33	Huile végétale	bouteille de 946ml	1
+408	33	Confitures	pot de 500ml	1
+409	36	Shampoing	bouteille de 355ml	1
+409	36	Pâtes alimentaires	sac de 900g	2
+410	35	Chocolat chaud	sac de 500g	1
+410	35	Cassonade	sac de 1kg	1
+501	30	Café moulu	sac de 300g	1
+501	30	Biscuits sucrés	boite de 300g	1
+502	30	Barres tendres	boite de 175g	2
+502	30	Olives	boite de 375ml	1
+503	33	Céréales	boite	2
+504	33	Chocolat chaud	sac de 500g	1
+504	33	Cassonade	sac de 1kg	1
+505	34	Confitures	pot de 500ml	1
+505	34	Couscous	sac de 1kg	1
+506	33	Dattes	boite de 500g	1
+506	33	Riz	sac de 900g	1
+507	35	Farine	sac de 2,5kg	1
+507	35	Ketchup	bouteille de 750ml	1
+508	36	Fruits en conserve	boite de 796ml	1
+508	36	Huile végétale	bouteille de 946ml	1
+509	35	Pâtes alimentaires	sac de 900g	2
