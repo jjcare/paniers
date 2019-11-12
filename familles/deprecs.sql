@@ -55,7 +55,7 @@ INSERT INTO dependents (`nip`, `relation`, `nom`, `prenom`, `age`, `sexe`) VALUE
 (80,"Enfant",null,"Vesnekam","11","M"),
 (80,"Enfant",null,"Aisnega","12","F"),
 (81,"Demandeur","BALASUBRAMANIAM","Niransala",null,"F"),
-(81,"Autre","CUMARASAMY","Annaladchumy (mère,78)",null,"F"),
+(81,"Autre","CUMARASAMY","Annaladchumy (mère,78)",null,""),
 (81,"Enfant",null,"Prissha","13","F"),
 (81,"Enfant",null,"Gershon","05","M"),
 (90,"Demandeur","MAHENDRARAJAH","Janani",null,"F"),

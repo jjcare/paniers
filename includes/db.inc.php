@@ -62,7 +62,7 @@ if (!$ret) {
 		`note` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
 		`foyer` varchar(15) DEFAULT NULL,
 		`montant` int(11) DEFAULT NULL,
-		`location` varchar(30) DEFAULT NULL,
+		`location` varchar(100) DEFAULT NULL,
 		PRIMARY KEY (`nip`),
 		UNIQUE KEY `fnum` (`fnum`,`nip`,`number`)
 	) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
