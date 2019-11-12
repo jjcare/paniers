@@ -86,8 +86,8 @@ class Foyers: # foyer assignments
     def __init__(self):
         self.foyers = {}
         # chick if last year's list is still there
-        if time.time() - os.stat("groceries.txt").st_mtime > three_mos:  # data is old
-            print (">>>> Fichier 'foyers-familles.txt' est vieux. Foyers ne sont pas inclus.")
+        if time.time() - os.stat("foyers-familles.txt").st_mtime > three_mos:  # data is old
+            print (">>>> Fichier 'foyers-familles.txt' est vieux. Foyers ne sont pas inclus. Utilisez makeFoyersFamilles().")
             return
         try:
             print ( "Élaboration des foyers en cours...")
@@ -504,18 +504,55 @@ class FamilyRecords:
     # end class FamilyRecord
 
 def doGroceries():  # get the grocery list and process
-    if time.time() - os.stat("groceries.txt").st_mtime <= three_mos:  # data is recent
-        groceries = open("groceries.txt").read().split('\n')
-        outbuf = "use shalom_cnd;\nSET character_set_client = utf8;\nTRUNCATE TABLE groceries;\nINSERT INTO groceries (`foyer`, `item1`, `item2`) VALUES "
-        for grocery in groceries:
-            if grocery.strip():
-                foyer, item1, item2 = grocery.split('\t')
-                outbuf += '\n({},"{}","{}"),'.format(foyer,item1,item2)
+    if time.time() - os.stat("foyers-épiceries.txt").st_mtime <= three_mos:  # data is recent
+        groceries = getGroceries("foyers-épiceries.txt")
+        outbuf = "use shalom_cnd;\nSET character_set_client = utf8;\nTRUNCATE TABLE groceries;\nINSERT INTO groceries (`foyer`, `item1`, `item2`) VALUES \n"
+        outbuf += '\n'.join(['({},"{}","{}"),'.format(foyer,groceries[foyer].get('item1'),groceries[foyer].get('item2')) for foyer in groceries])
         outbuf = outbuf[:-1] + ';'
-        f = open("groceries.sql","w")
+        f = open("groceries.sql","w", encoding='utf8')
         f.write(outbuf)
         f.close()
 
+def getGroceries(fname): # return a dictionary of groceries by foyer
+   with open(fname, encoding='utf8') as fh:
+      recs = [x for x in fh.read().split('\n') if x.strip()]
+    
+   foyers={}
+
+   def pluriel (s):
+       words = { 'boite':'boites', 'sac':'sacs', 'emballage':'emballages',
+                 'pot':'pots', 'bouteille':'bouteilles'}
+       return ' '.join([words.get(x,x) for x in s.split(' ')])
+
+   for r in recs:
+       rec = r.split('\t')
+       rec[3] = pluriel(rec[3]) if int(rec[4]) > 1 else rec[3]
+       item = '{} ({} {})'.format(rec[2],rec[4], rec[3])
+       if foyers.get(rec[0]): # already there
+           foyers[rec[0]]['item2'] = item
+       else:
+           foyers[rec[0]] = {'item1':item, 'item2':''}
+   return foyers
+ 
+def makeFoyerFamilles():
+   # use this function to produce foyers-familles.txt
+   g = getGroceries("foyers-épiceries.txt")
+   i = 1
+   fams = []
+   niv = input('Premier niveau pour 2 familles : ')
+   if int(niv) not in range(6): return
+   niv = int(niv) - 1
+   for foyer in sorted(g.keys()):
+      if int(foyer[0]) > niv:
+         fams.append('{}\t{}+{}'.format(foyer, i, i+1))
+         i += 2
+      else:
+         fams.append('{}\t{}'.format(foyer, i))
+         i += 1
+   with open('foyers-familles.txt', 'w', encoding='utf8') as fh:
+      fh.write('\n'.join(fams))
+   print('{} familles distribuées.'.format(fams[-1].split('+')[-1]))
+         
 # for age conversion
 conv = {'¾': 0.75, '½': 0.5, '¼': 0.25, '⅓': 0.33}    
 
