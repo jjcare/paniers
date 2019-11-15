@@ -18,7 +18,7 @@
 # 
 #                   - produce output .sql and .tab files of data
 #
-#                   REQUIRES: groceries.txt, foyers-familles.txt
+#                   REQUIRES: foyers-épiceries.txt, foyers-familles.txt
 #
 #                   TODO: some data massaging for typos (misspelled streets)
 #                         more error checking
@@ -503,16 +503,35 @@ class FamilyRecords:
 
     # end class FamilyRecord
 
-def doGroceries():  # get the grocery list and process
+def doGroceries():  # get the grocery list produce sql commands and text files
     if time.time() - os.stat("foyers-épiceries.txt").st_mtime <= three_mos:  # data is recent
-        groceries = getGroceries("foyers-épiceries.txt")
+        groceries = getGroceries("foyers-épiceries.txt")  # dict of foyers - items
+        # make sql commands
         outbuf = "use shalom_cnd;\nSET character_set_client = utf8;\nTRUNCATE TABLE groceries;\nINSERT INTO groceries (`foyer`, `item1`, `item2`) VALUES \n"
         outbuf += '\n'.join(['({},"{}","{}"),'.format(foyer,groceries[foyer].get('item1'),groceries[foyer].get('item2')) for foyer in groceries])
         outbuf = outbuf[:-1] + ';'
-        f = open("groceries.sql","w", encoding='utf8')
-        f.write(outbuf)
-        f.close()
+        with open("groceries.sql","w", encoding='utf8') as f:
+           f.write(outbuf)
 
+        # make groceries.txt (foyer, item1, item2)
+        out = '\n'.join(['\t'.join([x, groceries[x].get('item1'), groceries[x].get('item2')])
+                         for x in groceries])
+        with open("groceries.txt","w", encoding='utf8') as f:
+           f.write(out)
+
+        # make grocery-view-parents.txt for letter to parents
+        rev = {}
+        for foyer in groceries:
+           key = '\t'.join([groceries[foyer]['item1'], groceries[foyer].get('item2','')])
+           if not rev.get(key):
+              rev[key] = [foyer]
+           else:
+              rev[key].append(foyer)
+        out = '\n'.join(['{}\t{}'.format(', '.join(rev[x]), x) for x in rev])
+        with open('grocery-view-parents.txt','w',encoding='utf8') as f:
+           f.write(out)
+
+        
 def getGroceries(fname): # return a dictionary of groceries by foyer
    with open(fname, encoding='utf8') as fh:
       recs = [x for x in fh.read().split('\n') if x.strip()]
@@ -587,7 +606,7 @@ def elapsed(td):
 
 t_start = toc()
 
-doGroceries()
+doGroceries()   # get the grocery list (in 'foyers-épicerie.txt' from FMPro
 
 try:
     fambuf = FamilyBuffer(getFamilyList())

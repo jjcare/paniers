@@ -48,11 +48,12 @@
 306	31	Farine	sac de 2,5kg	1
 306	31	Ketchup	bouteille de 750ml	1
 307	32	Fruits en conserve	boite de 796ml	1
-307	32	Huile végétale	bouteille de 946ml	1
+307	32	Ketchup	bouteille de 750ml	1
 308	31	Pâtes alimentaires	sac de 900g	2
 308	31	Pois chiches/lentilles	boite de 540ml	1
 309	32	Raisins secs	sac de 375g	2
 310	33	Café moulu	sac de 300g	1
+310	33	Pois chiches/lentilles	boite de 540ml	1
 311	31	Sucre	sac  de 2kg	2
 311	31	Thé	boite	1
 312	31	Raisins secs	sac de 375g	2
@@ -60,13 +61,13 @@
 313	31	Thé	boite	1
 401	29	Sucre	sac  de 2kg	2
 401	29	Thé	boite	1
-402	30	Thé	boite	1
+402	30	Pains de savon	emballage de 4	1
 402	30	Thon ou saumon ou sardines	boite de 170g	1
 403	30	Brosses à dents	emballages individuels	4
 404	30	Pains de savon	emballage de 4	2
 404	30	Dentifrice	tube de 120ml	1
 405	35	Dentifrice	tube de 120ml	1
-405	35	Shampoing	bouteille de 355ml	1
+405	35	Brosses à dents	emballages individuels	2
 406	36	Savon pour nettoyer la maison (Hertel)	bouteille de 700ml	2
 407	34	Fruits en conserve	boite de 796ml	2
 408	33	Huile végétale	bouteille de 946ml	1
@@ -82,12 +83,12 @@
 503	33	Céréales	boite	2
 504	33	Chocolat chaud	sac de 500g	1
 504	33	Cassonade	sac de 1kg	1
-505	34	Confitures	pot de 500ml	1
+505	34	Olives	boite de 375ml	1
 505	34	Couscous	sac de 1kg	1
 506	33	Dattes	boite de 500g	1
 506	33	Riz	sac de 900g	1
 507	35	Farine	sac de 2,5kg	1
 507	35	Ketchup	bouteille de 750ml	1
-508	36	Fruits en conserve	boite de 796ml	1
-508	36	Huile végétale	bouteille de 946ml	1
-509	35	Pâtes alimentaires	sac de 900g	2
+508	36	Dattes	boite de 500g	1
+508	36	Farine	sac de 2,5kg	1
+509	35	Savon pour nettoyer la maison (Hertel)	bouteille de 700ml	2
