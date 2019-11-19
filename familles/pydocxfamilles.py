@@ -203,9 +203,12 @@ class Geo:
         response = request.urlopen(google_url.format(address.replace(' ','+'), google_api_key))
         j = json.loads(response.read().decode())
         if len(j) and 'error' not in j:
-            lat = j['results'][0]['geometry']['location']['lat']
-            lon = j['results'][0]['geometry']['location']['lng']
-            return '{},{}'.format(lat,lon)
+           try:
+              lat = j['results'][0]['geometry']['location']['lat']
+              lon = j['results'][0]['geometry']['location']['lng']
+              return '{},{}'.format(lat,lon)
+           except:
+              print('\nAdresse pas trouvé : ',address)
         return ''
 
     def writeGeo(self):
@@ -345,7 +348,7 @@ class FamilyRecords:
             # returns a tuple of name, sex
             if fam:
                 mem = fam.pop(0).strip()
-                if mem[-1] in 'MF':
+                if mem and mem[-1] in 'MF':
                     sex = mem[-1]
                     mem = mem[:-1]
                 else:
