@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+USE `shalom_cnd`;
 
 --
 -- Table structure for table `dependents`

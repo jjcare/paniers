@@ -234,6 +234,7 @@ class FamilyBuffer:
         if not docname: raise InputError('FamilyBuffer::No family list document given.')
         doc = Document(docname)
 
+        # make list of table rows (ignore headers and empty rows)
         fams = []
         for i in range(len(doc.tables)):
             t = doc.tables[i]
@@ -251,18 +252,18 @@ class FamilyBuffer:
 
         # sanity checks
 
-        if len(fams) == 0: # uh-oh - what, no data?
+        if len(fams) == 0: # uh-oh - what, no data? Stop the press!
             print("Aucune famille trouvée. Vérifie la source de données.")
             raise DataError('Aucune famille trouvée')
 
-        if len(set([len(f) for f in fams])) != 1: # all should have the same fields
+        if len(set([len(f) for f in fams])) != 1: # all should have the same field count
             raise DataError('Longueurs de données inégales')
         
         rep = input(u"J'ai trouvé {} familles. Est-ce juste (o/n)? ".format(len(fams)))
         if rep[0].lower() == 'n':
-            raise WrongNumberError('Count again')  # crash out if data looks suspicous
+            raise WrongNumberError('Vérifiez le format des données.')  # crash out if data looks suspicous
 
-        self.fams = fams
+        self.fams = fams  # keep the result if good
 
     def display(self,fam):
         print('\nFamille no. {}\n'.format(fam[0]), file=sys.stderr)
@@ -282,15 +283,17 @@ class FamilyRecords:
     # make a list of family records
     def __init__(self, fambuf, foyers):
         self.famlist = []
-        g = Geo()
+        g = Geo() # get saved list of geocodes
+
         for f in fambuf.fams:
             self.famlist.append(self.FamilyRecord(f, foyers))
-        g.writeGeo()
+
+        g.writeGeo() # save list of geocodes
 
     class FamilyRecord:
 
         # class constant definitions
-        UPPER_NAME_PAT = r"[A-ZÉÈÙÂÄÀÇÎÏÔÖ -][']?[A-ZÉÈÙÂÄÀÇÎÏÔÖ -]{2,}\s" # corrected for false results (ST-LOUIS = ST, LOUIS and N'Doube = N', Doube)
+        UPPER_NAME_PAT = r"[A-ZÉÈÙÂÄÀÇÎÏÔÖ -][']?[A-ZÉÈÙÂÄÀÇÎÏÔÖ -]{2,}\s" # corrected for false results (eg. ST-LOUIS = ST, LOUIS and N'Doube = N', Doube)
         SEX_PAT = r'^([MF])$'
         ADD_PAT = r'^([0-9]+? [^0-9]+( *# ?[0-9]+)?)'
         ADDR_PAT = r'^([0-9]{2,5} ?(?:[A-F] )?) ?([^0-9#]+) *#? ?([0-9]+)?'  # grab all components of address at once
@@ -299,14 +302,21 @@ class FamilyRecords:
         UPPER_PAT = r"[A-ZÉÈÙÂÄÀÇÎÏÔÖ -][']?[A-ZÉÈÙÂÄÀÇÎÏÔÖ -]{2,}\s"
 
         def __init__(self, fam, foyers):
-            # check for record length
-            if len(fam) and len(fam) < 9:
+            fields = ['num','members','nip','addr','pcode','tels','children', 'sexes', 'ages']
+            
+            funcs = {'members':self.setMembers,
+                     'addr':self.setAddress,
+                     'tels':self.setTels,
+                     'children':self.setChildren,
+                     'sexes': self.setSexes,
+                     'ages':self.setAges }
+            
+            self.montant = 0
+            
+            # check for record length (should have been previously verified)
+            if len(fam) and len(fam) < len(fields):
                 raise DataError('Famille {}: record trop court.'.format(fam[0]))
 
-            fields = ['num','members','nip','addr','pcode','tels','children', 'sexes', 'ages']
-            funcs = {'members':self.setMembers, 'addr':self.setAddress, 'tels':self.setTels,
-                     'children':self.setChildren, 'sexes': self.setSexes, 'ages':self.setAges }
-            self.montant = 0
             
             # iterate all input fields and set attributes accordingly
             for i,f in enumerate(fam):
@@ -315,7 +325,7 @@ class FamilyRecords:
                 setattr(self, fields[i],f)
 
             # other information
-            self.fixChildren()
+            self.fixChildren() # combine children data into dict form.
             self.setMontant()
             self.ra = ''
             self.foyer = foyers.getFoyer(self.num)
@@ -323,10 +333,10 @@ class FamilyRecords:
             self.location = geo.geolocate(' '.join([self.addr['number'],self.addr['rue'],self.pcode]))
 
         def setMembers(self, fam):
-            # sets the Demandeur and other adults
+            # sets the Demandeur and other adults (children are handled elsewhere)
             members = []
             fam = fam.split('\n')
-            name, sex = self.getNextMember(fam)
+            name, sex = self.getNextMember(fam) # process name and sex
             
             while name:
                 
@@ -348,6 +358,9 @@ class FamilyRecords:
             # returns a tuple of name, sex
             if fam:
                 mem = fam.pop(0).strip()
+                if '..' in mem: # get rid of ...... between name and sex
+                   mem = ''.join(mem.split('.'))
+
                 if mem and mem[-1] in 'MF':
                     sex = mem[-1]
                     mem = mem[:-1]
@@ -611,6 +624,7 @@ t_start = toc()
 
 doGroceries()   # get the grocery list (in 'foyers-épicerie.txt' from FMPro
 
+# read in Family list (docx format) and create FamilyBuffer
 try:
     fambuf = FamilyBuffer(getFamilyList())
 
@@ -629,9 +643,12 @@ else:
     foyers = Foyers()              # get foyer list - if present
 
     # format data into records, doing error checking and corrections
+    #  - MOST OF THE WORK DONE HERE
     families = FamilyRecords(fambuf, foyers)
 
+    # 
     # output results in various formats
+    #
 
     out = [ '','','','']
     total = 0
@@ -654,6 +671,21 @@ else:
             out[i] = insertcmd[outfiles[i]] + out[i][:-2] + ';'
         f.write(out[i])
         f.close()
+
+    # create all-purpose mysql file for project (shalom_cnd.sql + all outputs combined)
+    try:
+       with open('shalom_cnd.sql', encoding='utf8') as f:
+          outbuf = f.read() + '\n'
+       if time.time() - os.stat("groceries.sql").st_mtime <= three_mos:
+          with open('groceries.sql', encoding='utf8') as f:
+             outbuf += f.read() + '\n'
+       outbuf += '\n'.join([out[1],out[3]])
+
+       with open('paniers.sql', 'w', encoding='utf8') as f:
+          f.write(outbuf)
+       print ('\n\nComplete database constructor in « paniers.sql ».\n\n')
+    except:
+       print ('\n\n==> Unable to make database constructor.')
 
     print ('\n\nDone. Outputs are in', ', '.join(outfiles), '.\n')
     print ('Total needed for this year\'s collection: %0.2d $\n' % (total,))
